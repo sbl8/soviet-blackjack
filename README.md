@@ -2,7 +2,7 @@
 
 ![Banner](https://github.com/sbl8/soviet-blackjack/blob/master/site_background.jpg)
 
-**Blackjack – Soviet Edition** is a browser game that brings classic blackjack action with a distinct Soviet-era aesthetic. Why did I do this? I don't know man, I don't know, but here it is lol.
+**[Blackjack – Soviet Edition](sbl8.github.io/soviet-blackjack/)** is a browser game that brings classic blackjack action with a distinct Soviet-era aesthetic. Why did I do this? I don't know man, I don't know, but here it is lol.
 
 ## How to Play
 
