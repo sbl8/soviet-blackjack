@@ -17,4 +17,6 @@
 - **Tech:** Built with React (via CDN), vanilla JavaScript, and CSS.
 - **UI:** Animated card transitions, a canvas‑generated Soviet‑inspired score card, and a container styled with a dark wood–inspired texture.
 
+## License
 
+This project is licensed under the [MIT License](LICENSE).
