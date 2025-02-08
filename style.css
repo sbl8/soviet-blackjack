@@ -1,0 +1,243 @@
+/* Overall page styling with Soviet-era colors and Impact typography.
+   The site_background.jpg (placed in your project root) is used as a fixed,
+   subtly overlaid background image with a dark overlay to reduce its imposing presence. */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('site_background.jpg') no-repeat center center fixed, #111;
+    background-size: cover;
+    color: #fcd116;
+    font-family: Impact, sans-serif;
+    position: relative;
+    z-index: 0;
+}
+
+/* Dark overlay to make the background less imposing */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* Container for the game – uses a programmatically generated dark wood texture.
+     This simulates the look of a USSR desk surface without needing an external image. */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    /* Base dark wood color */
+    background-color: #2e2626;
+    /* Overlaid wood grain texture using two repeating linear gradients */
+    background-image:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 10px, transparent 10px, transparent 20px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 10px, transparent 10px, transparent 20px);
+    background-blend-mode: overlay;
+    border-radius: 8px;
+}
+
+/* Headings */
+h1,
+h2 {
+    text-align: center;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 800px) {
+    .container {
+        width: 90%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    .table {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Table area showing the dealer background */
+.table {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 20px auto;
+    background: url('assets/dealer_background/dealer_background.svg') no-repeat center center;
+    background-size: cover;
+    border: 2px solid #fcd116;
+}
+
+/* Card images – animated from the deck center to final positions */
+.card {
+    position: absolute;
+    width: 225px;
+    height: 315px;
+    transition: top 0.5s ease, left 0.5s ease;
+}
+
+/* Button styling with hover effects and tooltips */
+.controls button {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: Impact, sans-serif;
+    border-radius: 4px;
+    position: relative;
+}
+
+.controls button:hover {
+    background-color: #a5281f;
+    transform: scale(1.05);
+}
+
+/* Tooltip styling (shown on hover) */
+.controls button[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fcd116;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 14px;
+    z-index: 10;
+    opacity: 0.9;
+}
+
+/* Disabled button styling */
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Input styling for bet entry */
+.controls input[type="number"] {
+    padding: 5px;
+    font-size: 16px;
+    width: 100px;
+    font-family: Impact, sans-serif;
+    margin-right: 10px;
+}
+
+/* Info messages styling */
+.balance-info,
+.message {
+    text-align: center;
+    font-size: 18px;
+    margin: 10px;
+}
+
+/* Help modal styling */
+.help-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.help-content {
+    background: #222;
+    border: 2px solid #fcd116;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    color: #fcd116;
+    font-family: Impact, sans-serif;
+}
+
+.help-content h2 {
+    margin-top: 0;
+}
+
+.help-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.help-content li {
+    margin: 8px 0;
+}
+
+.help-content button {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: Impact, sans-serif;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.help-content button:hover {
+    background-color: #a5281f;
+}
+
+/* Score card modal styling */
+.scorecard-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 110;
+}
+
+.scorecard-content {
+    background: #222;
+    border: 2px solid #fcd116;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 650px;
+    width: 90%;
+    text-align: center;
+    color: #fcd116;
+    font-family: Impact, sans-serif;
+}
+
+.scorecard-content canvas {
+    border: 2px solid #fcd116;
+    margin: 10px 0;
+}
+
+.scorecard-content button {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: Impact, sans-serif;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.scorecard-content button:hover {
+    background-color: #a5281f;
+}
